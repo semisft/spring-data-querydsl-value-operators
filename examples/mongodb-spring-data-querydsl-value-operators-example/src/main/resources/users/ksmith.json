@@ -1,0 +1,27 @@
+{
+	"_id": null,
+	"userName": "ksmith",
+	"status": "LOCKED",
+	"profile": {
+		"firstName": "Kevin",
+		"lastName": "Smith",
+		"middleName": "Mac",
+		"age": 33,
+		"dob": "1986-07-11"
+	},
+	"jobData": {
+		"department": "SALES",
+		"location": "NY"
+	},
+	"emails": [{
+		"label": "Primary",
+		"address": "ksmith@company.com",
+		"verified": true,
+		"_default": true
+	}, {
+		"label": "Secondary",
+		"address": "ksmith@example.com",
+		"verified": true,
+		"_default": false
+	}]
+}
