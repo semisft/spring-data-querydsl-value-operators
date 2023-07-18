@@ -1,6 +1,7 @@
 <!-- Copyright (c) 2018 @gt_tech Licensed under the Apache License, Version 
 	2.0 (the "License"); you may not use this file except in compliance with 
-	the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 
+	the License. You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0 
 	Unless required by applicable law or agreed to in writing, software distributed 
 	under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES 
 	OR CONDITIONS OF ANY KIND, either express or implied. See the License for 
@@ -13,7 +14,7 @@
 
 	<groupId>org.bitbucket.gt_tech</groupId>
 	<artifactId>spring-data-querydsl-value-operators</artifactId>
-	<version>5.0.0-SNAPSHOT</version>
+	<version>5.0.0</version>
 	<packaging>jar</packaging>
 
 	<name>Spring Data QueryDSL value operators</name>
@@ -22,7 +23,8 @@
 
 	<issueManagement>
 		<system>Bitbucket Repo Issue Tracker</system>
-		<url>https://bitbucket.org/gt_tech/spring-data-querydsl-value-operators/issues</url>
+		<url>
+			https://bitbucket.org/gt_tech/spring-data-querydsl-value-operators/issues</url>
 	</issueManagement>
 
 	<licenses>
@@ -34,8 +36,10 @@
 	</licenses>
 
 	<scm>
-		<connection>scm:git:git@bitbucket.org:gt_tech/spring-data-querydsl-value-operators.git</connection>
-		<developerConnection>scm:git@bitbucket.org:gt_tech/spring-data-querydsl-value-operators.git
+		<connection>
+			scm:git:git@bitbucket.org:gt_tech/spring-data-querydsl-value-operators.git</connection>
+		<developerConnection>
+			scm:git@bitbucket.org:gt_tech/spring-data-querydsl-value-operators.git
         </developerConnection>
 		<url>https://bitbucket.org/gt_tech/spring-data-querydsl-value-operators/</url>
 	</scm>
@@ -53,11 +57,14 @@
 	</developers>
 
 	<description>
-        This component provides extensions in terms of "Value operators" in search input fields on top of Querydsl and
-        it's Spring data integration. These value operators embellish the default out of the box capabilities in
-        Spring Data/Querydsl, which is by far statically compiled, by allowing service consumers to plugin different
-        value operators in search fields and thus perform rich/complex queries.
-    </description>
+		This component provides extensions in terms of "Value operators" in
+		search input fields on top of Querydsl and
+		it's Spring data integration. These value operators embellish the
+		default out of the box capabilities in
+		Spring Data/Querydsl, which is by far statically compiled, by allowing
+		service consumers to plugin different
+		value operators in search fields and thus perform rich/complex queries.
+	</description>
 	<url>https://bitbucket.org/gt_tech/spring-data-querydsl-value-operators</url>
 
 	<distributionManagement>
@@ -76,15 +83,16 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-		<java.source.version>1.8</java.source.version>
-		<java.target.version>1.8</java.target.version>
+		<java.source.version>17</java.source.version>
+		<java.target.version>17</java.target.version>
 
-		<spring.boot.version>2.1.4.RELEASE</spring.boot.version>
+		<spring.boot.version>3.1.0</spring.boot.version>
 		<commons.collection.version>4.3</commons.collection.version>
 		<guava.version>27.1-jre</guava.version>
-		<!-- align query dsl version with Spring boot version though library users
+		<!-- align query dsl version with Spring boot version though library
+		users
 			can override -->
-		<querydsl.version>4.2.1</querydsl.version>
+		<querydsl.version>5.0.0</querydsl.version>
 
 		<groovy.version>2.4.15</groovy.version>
 		<spock.version>1.1-groovy-2.4</spock.version>
@@ -117,7 +125,8 @@
 		<plugin.doxia.module.markdown.version>1.8</plugin.doxia.module.markdown.version>
 		<plugin.gpg.version>1.6</plugin.gpg.version>
 
-		<querydsl.generated.sources.target.directory>${project.build.directory}/generated-test-sources/querydsl/java</querydsl.generated.sources.target.directory>
+		<querydsl.generated.sources.target.directory>
+			${project.build.directory}/generated-test-sources/querydsl/java</querydsl.generated.sources.target.directory>
 	</properties>
 
 	<dependencyManagement>
@@ -150,13 +159,12 @@
 		<dependency>
 			<groupId>com.querydsl</groupId>
 			<artifactId>querydsl-core</artifactId>
-			<!-- version managed by spring-boot-dependencies -->
 		</dependency>
-
 		<dependency>
 			<groupId>com.querydsl</groupId>
-			<artifactId>querydsl-collections</artifactId>
-			<!-- version managed by spring-boot-dependencies -->
+			<artifactId>querydsl-apt</artifactId>
+			<version>${querydsl.version}</version>
+			<classifier>jakarta</classifier>
 		</dependency>
 
 		<dependency>
@@ -183,8 +191,8 @@
 		</dependency>
 
 		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
+			<groupId>jakarta.servlet</groupId>
+			<artifactId>jakarta.servlet-api</artifactId>
 			<!-- version managed by spring-boot-dependencies -->
 			<scope>provided</scope>
 		</dependency>
@@ -244,7 +252,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
-            <scope>test</scope>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>
@@ -269,7 +277,8 @@
 		</dependency>
 
 		<dependency>
-			<!-- enables mocking of classes without default constructor (together 
+			<!-- enables mocking of classes without default constructor
+			(together 
 				with CGLIB) -->
 			<groupId>org.objenesis</groupId>
 			<artifactId>objenesis</artifactId>
@@ -328,7 +337,8 @@
 				<artifactId>maven-checkstyle-plugin</artifactId>
 				<version>${plugin.checkstyle.version}</version>
 				<configuration>
-					<configLocation>file:///${project.basedir}/build-tools/code_quality/checkstyle.xml</configLocation>
+					<configLocation>
+						file:///${project.basedir}/build-tools/code_quality/checkstyle.xml</configLocation>
 					<headerLocation>file:///${project.basedir}/LICENSE.txt</headerLocation>
 					<skip>${skip.checkStyle}</skip>
 					<failOnViolation>true</failOnViolation>
@@ -352,50 +362,14 @@
 					<execution>
 						<goals>
 							<!-- <goal>addSources</goal> -->
-<!-- 							<goal>compile</goal> -->
+							<!-- 							<goal>compile</goal> -->
 							<goal>addTestSources</goal>
 							<goal>testCompile</goal>
 						</goals>
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
-				<groupId>com.mysema.maven</groupId>
-				<artifactId>apt-maven-plugin</artifactId>
-				<version>${plugin.mongodb.mysema.apt.version}</version>
-				<dependencies>
-					<dependency>
-						<groupId>com.querydsl</groupId>
-						<artifactId>querydsl-apt</artifactId>
-						<version>${querydsl.version}</version>
-					</dependency>
-				</dependencies>
-				<executions>
-					<execution>
-						<goals>
-							<goal>test-process</goal>
-							<goal>add-test-sources</goal>
-						</goals>
-						<phase>generate-test-sources</phase>
-						<configuration>
-							<outputDirectory>${querydsl.generated.sources.target.directory}</outputDirectory>
-							<!-- Works with Entity Annotation -->
-							<!--<processor>com.querydsl.apt.morphia.MorphiaAnnotationProcessor</processor> -->
-							<!-- Works with QueryEntity annotation -->
-							<processor>com.querydsl.apt.QuerydslAnnotationProcessor</processor>
-							<!-- Works with Spring Mongo data Annotation -->
-							<!--<processor>org.springframework.data.mongodb.repository.support.MongoAnnotationProcessor -->
-							<!--</processor> -->
-							<options>
-								<querydsl.logInfo>true</querydsl.logInfo>
-								<querydsl.listAccessors>false</querydsl.listAccessors>
-								<querydsl.useGetters>true</querydsl.useGetters>
-								<querydsl.unknownAsEmbeddable>true</querydsl.unknownAsEmbeddable>
-							</options>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+	
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
@@ -406,14 +380,17 @@
 					<skipTests>${skip.unit.tests}</skipTests>
 					<includes>
 						<include>**/*Test.java</include>
-						<!-- include Spock spec, oddly sure requires .java extension even for 
+						<!-- include Spock spec, oddly sure requires .java
+						extension even for 
 							groovy scripts -->
 						<include>**/*Spec*.java</include>
 					</includes>
 					<excludes>
 						<exclude>**/*IT.java</exclude>
 					</excludes>
-					<!-- Do not set this to 0 in commit as that would block Jacoco code coverage reports due to its agent not getting forked -->
+					<!-- Do not set this to 0 in commit as that would block
+					Jacoco code coverage reports due to its agent not getting
+					forked -->
 					<!-- <forkCount>0</forkCount> -->
 				</configuration>
 			</plugin>
@@ -443,7 +420,8 @@
 						<configuration>
 							<sources>
 								<source>${project.basedir}}/src/test/groovy</source>
-								<source>${querydsl.generated.sources.target.directory}</source>
+								<source>
+									${querydsl.generated.sources.target.directory}</source>
 							</sources>
 						</configuration>
 					</execution>
@@ -501,7 +479,8 @@
 						<artifactId>maven-failsafe-plugin</artifactId>
 						<version>${plugin.failsafe.version}</version>
 						<configuration>
-							<!-- Sets the VM argument line used when integration tests are run. -->
+							<!-- Sets the VM argument line used when integration
+							tests are run. -->
 							<argLine>${failsafeArgLine}</argLine>
 							<skipTests>${skip.integration.tests}</skipTests>
 							<includes>
@@ -510,7 +489,9 @@
 							<excludes>
 								<exclude>**/*Test.java</exclude>
 							</excludes>
-							<!-- Do not set this to 0 in commit as that would block Jacoco code coverage reports due to its agent not getting forked -->
+							<!-- Do not set this to 0 in commit as that would
+							block Jacoco code coverage reports due to its agent
+							not getting forked -->
 							<!-- <forkCount>0</forkCount> -->
 						</configuration>
 						<executions>
@@ -573,9 +554,11 @@
 						<artifactId>maven-checkstyle-plugin</artifactId>
 						<version>${plugin.checkstyle.version}</version>
 						<configuration>
-							<configLocation>file:///${project.basedir}/build-tools/code_quality/checkstyle.xml
+							<configLocation>
+								file:///${project.basedir}/build-tools/code_quality/checkstyle.xml
 							</configLocation>
-							<headerLocation>file:///${project.basedir}/LICENSE.txt</headerLocation>
+							<headerLocation>
+								file:///${project.basedir}/LICENSE.txt</headerLocation>
 						</configuration>
 						<reportSets>
 							<reportSet>
@@ -608,7 +591,8 @@
 							<skip>${skip.jacoco.code.coverage}</skip>
 						</configuration>
 						<executions>
-							<!-- Prepares the property pointing to the JaCoCo runtime agent which 
+							<!-- Prepares the property pointing to the JaCoCo
+							runtime agent which 
 								is passed as VM argument when Maven the Surefire plugin is executed. -->
 							<execution>
 								<id>pre-unit-test</id>
@@ -616,14 +600,17 @@
 									<goal>prepare-agent</goal>
 								</goals>
 								<configuration>
-									<!-- Sets the path to the file which contains the execution data. -->
+									<!-- Sets the path to the file which
+									contains the execution data. -->
 									<destFile>${jacoco.ut.execution.data.file}</destFile>
-									<!-- Sets the name of the property containing the settings for JaCoCo 
+									<!-- Sets the name of the property
+									containing the settings for JaCoCo 
 										runtime agent. -->
 									<propertyName>surefireArgLine</propertyName>
 								</configuration>
 							</execution>
-							<!-- Ensures that the code coverage report for unit tests is created 
+							<!-- Ensures that the code coverage report for unit
+							tests is created 
 								after unit tests have been run. -->
 							<execution>
 								<id>post-unit-test</id>
@@ -632,14 +619,19 @@
 									<goal>report</goal>
 								</goals>
 								<configuration>
-									<!-- Sets the path to the file which contains the execution data. -->
+									<!-- Sets the path to the file which
+									contains the execution data. -->
 									<dataFile>${jacoco.ut.execution.data.file}</dataFile>
-									<!-- Sets the output directory for the code coverage report. -->
-									<outputDirectory>${project.reporting.outputDirectory}/jacoco-ut</outputDirectory>
-									<title>Spring Data QueryDSL Value Operators - Unit Test code coverage</title>
+									<!-- Sets the output directory for the code
+									coverage report. -->
+									<outputDirectory>
+										${project.reporting.outputDirectory}/jacoco-ut</outputDirectory>
+									<title>Spring Data QueryDSL Value Operators
+										- Unit Test code coverage</title>
 								</configuration>
 							</execution>
-							<!-- Prepares the property pointing to the JaCoCo runtime agent which 
+							<!-- Prepares the property pointing to the JaCoCo
+							runtime agent which 
 								is passed as VM argument when Maven the Failsafe plugin is executed. -->
 							<execution>
 								<id>pre-integration-test</id>
@@ -648,14 +640,17 @@
 									<goal>prepare-agent</goal>
 								</goals>
 								<configuration>
-									<!-- Sets the path to the file which contains the execution data. -->
+									<!-- Sets the path to the file which
+									contains the execution data. -->
 									<destFile>${jacoco.it.execution.data.file}</destFile>
-									<!-- Sets the name of the property containing the settings for JaCoCo 
+									<!-- Sets the name of the property
+									containing the settings for JaCoCo 
 										runtime agent. -->
 									<propertyName>failsafeArgLine</propertyName>
 								</configuration>
 							</execution>
-							<!-- Ensures that the code coverage report for integration tests after 
+							<!-- Ensures that the code coverage report for
+							integration tests after 
 								integration tests have been run. -->
 							<execution>
 								<id>post-integration-test</id>
@@ -664,17 +659,22 @@
 									<goal>report</goal>
 								</goals>
 								<configuration>
-									<!-- Sets the path to the file which contains the execution data. -->
+									<!-- Sets the path to the file which
+									contains the execution data. -->
 									<dataFile>${jacoco.it.execution.data.file}</dataFile>
-									<!-- Sets the output directory for the code coverage report. -->
-									<outputDirectory>${project.reporting.outputDirectory}/jacoco-it</outputDirectory>
-									<title>Spring Data QueryDSL Value Operators - Integration Test code coverage</title>
+									<!-- Sets the output directory for the code
+									coverage report. -->
+									<outputDirectory>
+										${project.reporting.outputDirectory}/jacoco-it</outputDirectory>
+									<title>Spring Data QueryDSL Value Operators
+										- Integration Test code coverage</title>
 								</configuration>
 							</execution>
 						</executions>
 					</plugin>
 
-					<!-- START: Building project site, note that by default site-plugin-would 
+					<!-- START: Building project site, note that by default
+					site-plugin-would 
 						look for external files in src/site folder but to change that we define the 
 						folder elsewhere, and use an ant task to copy those files in compile phase -->
 					<plugin>
@@ -690,15 +690,18 @@
 										<copy
 											todir="${project.build.directory}/custom_staging_for_site"
 											overwrite="true">
-											<fileset dir="${project.basedir}/build-tools/site"
+											<fileset
+												dir="${project.basedir}/build-tools/site"
 												includes="**" />
 										</copy>
-										<copy file="${project.basedir}/../README.md"
+										<copy
+											file="${project.basedir}/../README.md"
 											tofile="${project.build.directory}/custom_staging_for_site/markdown/README.md"
 											overwrite="true" />
-										<copy file="${project.basedir}/../examples/mongodb-spring-data-querydsl-value-operators-example/README.md"
-											  tofile="${project.build.directory}/custom_staging_for_site/markdown/EXAMPLE_APPLICATION.md"
-											  overwrite="true" />
+										<copy
+											file="${project.basedir}/../examples/mongodb-spring-data-querydsl-value-operators-example/README.md"
+											tofile="${project.build.directory}/custom_staging_for_site/markdown/EXAMPLE_APPLICATION.md"
+											overwrite="true" />
 									</tasks>
 								</configuration>
 								<goals>
@@ -720,9 +723,11 @@
 						</dependencies>
 						<configuration>
 							<relativizeDecorationLinks>false</relativizeDecorationLinks>
-							<!-- Refer the antrun plugin above to ensure that below is in sync 
+							<!-- Refer the antrun plugin above to ensure that
+							below is in sync 
 								with ant configs -->
-							<siteDirectory>${project.build.directory}/custom_staging_for_site</siteDirectory>
+							<siteDirectory>
+								${project.build.directory}/custom_staging_for_site</siteDirectory>
 						</configuration>
 					</plugin>
 					<!-- STOP: Project site -->

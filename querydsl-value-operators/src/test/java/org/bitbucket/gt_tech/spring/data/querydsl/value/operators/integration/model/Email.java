@@ -16,14 +16,14 @@
 package org.bitbucket.gt_tech.spring.data.querydsl.value.operators.integration.model;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 
 @Entity
 public class Email {
 
-	@javax.persistence.Id
+	@jakarta.persistence.Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int _id;
 

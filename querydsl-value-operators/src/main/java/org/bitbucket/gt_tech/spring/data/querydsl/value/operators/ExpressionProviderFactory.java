@@ -15,22 +15,24 @@
  *******************************************************************************/
 package org.bitbucket.gt_tech.spring.data.querydsl.value.operators;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.data.querydsl.binding.QuerydslBindings;
+import org.springframework.data.querydsl.binding.QuerydslBindings.PathBinder;
+
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import com.querydsl.core.types.Path;
 import com.querydsl.core.types.Predicate;
+import com.querydsl.core.types.dsl.DatePath;
 import com.querydsl.core.types.dsl.DateTimePath;
 import com.querydsl.core.types.dsl.EnumPath;
 import com.querydsl.core.types.dsl.NumberPath;
 import com.querydsl.core.types.dsl.StringPath;
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.data.querydsl.binding.QuerydslBindings;
-import org.springframework.data.querydsl.binding.QuerydslBindings.PathBinder;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
 
 /**
  * Main entry point for library consumers. Factory class provides access to
@@ -55,6 +57,8 @@ public final class ExpressionProviderFactory {
                         return new NumberPathExpressionProviderImpl();
                     } else if (DateTimePath.class.isAssignableFrom(key.getClass())) {
                         return new DateTimePathExpressionProviderImpl();
+                    } else if (DatePath.class.isAssignableFrom(key.getClass())) {
+                        return new DatePathExpressionProviderImpl();
                     }
                     return null;
                 }

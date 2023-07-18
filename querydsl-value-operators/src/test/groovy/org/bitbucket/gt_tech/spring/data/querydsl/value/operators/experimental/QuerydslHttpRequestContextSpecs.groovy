@@ -20,7 +20,7 @@ import com.querydsl.core.types.Path
 import org.springframework.mock.web.MockHttpServletRequest
 import spock.lang.Specification
 
-import javax.servlet.http.HttpServletRequest
+import jakarta.servlet.http.HttpServletRequest
 
 /**
  * Specification tests QuerydslHttpRequestContext

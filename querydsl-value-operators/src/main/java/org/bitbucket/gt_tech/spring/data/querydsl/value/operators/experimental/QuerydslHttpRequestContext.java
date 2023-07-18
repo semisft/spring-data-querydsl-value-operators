@@ -27,8 +27,8 @@ import org.bitbucket.gt_tech.spring.data.querydsl.value.operators.Operator;
 import org.bitbucket.gt_tech.spring.data.querydsl.value.operators.OperatorAndValue;
 import org.springframework.data.web.querydsl.QuerydslPredicateArgumentResolver;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletRequestWrapper;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequestWrapper;
 import java.lang.reflect.Array;
 import java.util.*;
 import java.util.stream.Collectors;

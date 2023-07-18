@@ -15,14 +15,24 @@
  *******************************************************************************/
 package org.bitbucket.gt_tech.spring.data.querydsl.value.operators.integration.model;
 
-import com.querydsl.core.annotations.QueryEntity;
-import org.hibernate.annotations.Type;
-import org.springframework.data.annotation.Id;
-
-import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import org.hibernate.type.YesNoConverter;
+import org.springframework.data.annotation.Id;
+
+import com.querydsl.core.annotations.QueryEntity;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Convert;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+
 
 @QueryEntity
 @Entity(name = "user")
@@ -32,7 +42,7 @@ public class User {
      * Seems to be not working for auto-generation with embedded MongoDB
      */
     @Id
-    @javax.persistence.Id
+    @jakarta.persistence.Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int _id;
     private String userName;
@@ -45,7 +55,7 @@ public class User {
     @OneToOne(targetEntity = JobData.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     private JobData jobData;
 
-    @Type(type="yes_no")
+    @Convert(converter = YesNoConverter.class)
     private boolean enabled;
 
     private Long employeeId;
